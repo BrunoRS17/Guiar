@@ -163,23 +163,48 @@ try {
   <div class="row">
     <?php
     if (count($result) > 0) {
-      foreach($result as $row) {
-        ?>
-        <div class="col-md-4">
-          <div class="card">
-            <div class="card-body">
-              <h5 class="card-title"><?php echo htmlspecialchars($row["nome_adm"]); ?></h5>
-              <button class="btn" data-toggle="modal" data-target="#loginModal" data-username="<?php echo htmlspecialchars($row["nome_usuario"]); ?>">Entrar</button>
+        foreach($result as $row) {
+            // Certificar que o nome da empresa está na sessão
+            if (isset($_SESSION['company_name'])) {
+                $nome_empresa = $_SESSION['company_name'];
+            } else {
+                // Caso o nome da empresa não esteja na sessão, você pode buscar do banco
+                $company_id = $_SESSION['company_id'];
+                $stmtEmpresa = $pdo->prepare("SELECT nome_empresa FROM empresa WHERE id_empresa = :company_id");
+                $stmtEmpresa->bindParam(':company_id', $company_id, PDO::PARAM_INT);
+                $stmtEmpresa->execute();
+                $empresa = $stmtEmpresa->fetch(PDO::FETCH_ASSOC);
+                $nome_empresa = $empresa['nome_empresa'];
+            }
+
+            // Diretório da foto do administrador
+            $foto = $row["nome_foto"];
+            $caminho_foto = 'admin_fotos/' . htmlspecialchars($nome_empresa) . '/' . htmlspecialchars($foto);
+
+            // Depuração: Exibir o caminho gerado para verificar se está correto
+            //echo "Caminho da foto: " . $caminho_foto . "<br>";
+
+            ?>
+            <div class="col-md-4">
+                <div class="card">
+                    <!-- Exibir a foto do administrador se existir -->
+                    <?php if (!empty($foto) && file_exists($caminho_foto)) { ?>
+                        <img src="<?php echo $caminho_foto; ?>" class="card-img-top" alt="Foto do administrador" style="height: 250px;  object-fit: cover;">
+                    <?php } else { ?>
+                        <img src="uploads/default-placeholder.png" class="card-img-top" alt="Sem foto" style="height: 200px; object-fit: cover;">
+                    <?php } ?>
+                    <div class="card-body">
+                        <h5 class="card-title"><?php echo htmlspecialchars($row["nome_adm"]); ?></h5>
+                        <button class="btn" data-toggle="modal" data-target="#loginModal" data-username="<?php echo htmlspecialchars($row["nome_usuario"]); ?>">Entrar</button>
+                    </div>
+                </div>
             </div>
-          </div>
-        </div>
-        <?php
-      }
+            <?php
+        }
     } else {
-      echo "<p>Nenhum administrador encontrado.</p>";
+        echo "<p>Nenhum administrador encontrado.</p>";
     }
     ?>
-  </div>
 </div>
 
 <!-- Modal de Login -->
@@ -268,7 +293,10 @@ try {
             <label for="adminPassword">Senha</label>
             <input type="password" class="form-control" id="adminPassword" name="adminPassword" required>
           </div>
-         
+          <div class="form-group">
+            <label for="adminFoto">Foto do Administrador</label>
+            <input type="file" class="form-control-file" id="adminFoto" name="adminFoto" accept="image/*" required>
+          </div>
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>

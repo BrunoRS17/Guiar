@@ -230,7 +230,7 @@ try {
         <a href="../PHP ADM/entregadores.php">Entregadores</a>
         <a href="../PHP ADM/pedidosEntregues.php">Pedidos Entregues</a>
         <div class="spacer"></div>
-        <a href="#">Meu perfil</a>
+        <a href="../PHP ADM/meuPerfil.php">Meu perfil</a>
     </div>
 
       <!-- Botão de logout -->
