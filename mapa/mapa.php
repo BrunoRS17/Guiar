@@ -125,8 +125,9 @@ if(isset($_POST['sair'])){
                         }),
                         LineOptions: {
                             styles: [{
-                                color: 'rgba(0,0,0,0)', // Rota alternativa invisível
-                                weight: 1
+                                color: 'rgba(0,0,0,0)',
+                                weight: 1,
+                                show: false,
                             }]
                         },
                         createMarker: function() {
@@ -164,7 +165,8 @@ if(isset($_POST['sair'])){
                     lineOptions: {
                         styles: [{
                             color: 'blue',
-                            weight: 7
+                            weight: 7,
+                            show: false,
                         }]
                     },
                     createMarker: function() {
