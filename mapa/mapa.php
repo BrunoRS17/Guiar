@@ -32,7 +32,8 @@ if(isset($_POST['sair'])){
     <div class="container">
         <br>
         <br>
-        <div id="map" style="height: 620px;"></div>
+        <div id="map">
+        </div>
         <br><br>
         <center>
             <div class="opcoes">
@@ -42,6 +43,7 @@ if(isset($_POST['sair'])){
                 </form>
             </div>
         </center>
+       
     </div>
 
 
@@ -123,16 +125,17 @@ if(isset($_POST['sair'])){
                         router: L.Routing.osrmv1({
                             serviceUrl: 'https://router.project-osrm.org/route/v1'
                         }),
+                        show:false,
                         LineOptions: {
                             styles: [{
                                 color: 'rgba(0,0,0,0)',
-                                weight: 1,
-                                show: false,
+                                weight: 1
                             }]
                         },
                         createMarker: function() {
                             return null;
                         }
+    
                     }).on('routesfound', function(e) {
                         var routeLength = e.routes[0].summary.totalDistance; // Distância da rota em metros
                         resolve({
@@ -159,6 +162,7 @@ if(isset($_POST['sair'])){
                         currentUserPosition,
                         L.latLng(melhorRota.ponto.latitude, melhorRota.ponto.longitude)
                     ],
+                    show:false,
                     router: L.Routing.osrmv1({
                         serviceUrl: 'https://router.project-osrm.org/route/v1'
                     }),

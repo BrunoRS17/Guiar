@@ -13,3 +13,7 @@
 #criarRota:hover{
     transform: scale(1.1);
 }
+
+#map{
+ height: 670px;
+}
