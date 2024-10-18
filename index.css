@@ -1,3 +1,9 @@
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
 body{
   font-family:'Trebuchet MS', sans-serif;
   background-color: #f2efe1;
@@ -12,7 +18,6 @@ body{
 #conteudoTexto{
   padding-top: 50px;
   padding-bottom: 50px;
-
 }
 
 #corfundo{
@@ -22,7 +27,8 @@ body{
   background-position: center;
   size: 100%;
   background-color: rgb(255, 255, 255);
-  height: 700px
+  height: 700px;
+  margin-bottom: 150px;
 }
 
 .imagem-fundo {
@@ -31,6 +37,7 @@ body{
   background-position: center;
   height: 800px; /* Ajuste a altura de acordo com a sua necessidade */
   position: relative;
+  margin-bottom: 150px;
 }
 
 .bloco-em-cima {
@@ -42,4 +49,39 @@ body{
   background-color: #ffc06e; /* Cor de fundo do bloco */
   padding: 20px;
   border-radius: 2px;
+}
+
+.container{
+  background-color: antiquewhite;
+  width: 100vw;
+}
+li{
+  list-style: none;
+}
+.logos{
+  max-width: 1000px;
+  margin: 0 auto;
+  overflow: hidden;
+}
+.logos ul{
+  display: flex;
+  align-items: center;
+  gap: 40px;
+  animation: 10s infinite slide linear;
+}
+.logos ul:hover{
+  animation-play-state: paused;
+}
+.logos img{
+  width: 150px;
+  filter: grayscale(20%);
+}
+
+@keyframes slide{
+  from{
+    transform: translateX(0);
+  }
+  to{
+    transform: translateX(-840px);
+  }
 }
