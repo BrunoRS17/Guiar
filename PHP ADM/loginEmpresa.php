@@ -30,10 +30,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             header("Location: escolherAdm.php");
             exit;
         } else {
-            // Caso o usuário ou senha estejam incorretos, redireciona de volta com mensagem de erroooo
-            $erro = 'Nome de usuário ou senha incorretos, tente novamente';
+            // Caso o usuário ou senha estejam incorretos, redireciona de volta com mensagem de erro
+            $erro = 'Nome de usuário ou senha incorretos';
             header("Location: ../ADM/loginEmpresa.php?erro=" . urlencode($erro));
-            exit(); // Certifique-se de que o script pare aqui
+            exit();
         }
     } catch (PDOException $e) {
         echo 'Erro: ' . $e->getMessage();
@@ -43,4 +43,3 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 // Fecha a conexão com o banco de dados
 $pdo = null;
 ?>
-
