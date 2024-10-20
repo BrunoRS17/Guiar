@@ -1,3 +1,13 @@
+@font-face {
+  font-family: 'Brice-Bold';
+  src: url('fonts/Brice-Bold.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'BasisGrotesque-Regular';
+  src: url('fonts/BasisGrotesqueArabicPro-Regular.ttf') format('truetype');
+}
+
 *{
   margin: 0;
   padding: 0;
@@ -5,15 +15,9 @@
 }
 
 body{
-  font-family:'Trebuchet MS', sans-serif;
   background-color: #f2efe1;
+  font-family: 'BasisGrotesque-Regular';
 }
-
-/*.imagemfundo{
-  background-image: url(img/fundo3.jpg);
-  background-repeat: no-repeat;
-  background-size: cover;
-}*/
 
 #conteudoTexto{
   padding-top: 50px;
@@ -21,12 +25,11 @@ body{
 }
 
 #corfundo{
-  background-image: url(img/fundo5.png);
+  background-image: url(img/img-index1.png);
   background-repeat: no-repeat;
   background-size: 85%;
   background-position: center;
   size: 100%;
-  background-color: rgb(255, 255, 255);
   height: 700px;
   margin-bottom: 150px;
 }
