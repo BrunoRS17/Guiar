@@ -8,25 +8,51 @@
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
   <link href="../CssnavbarRodape.css" rel="stylesheet" />
+  <link
+    rel="Shortcut Icon" 
+    type="image/png"
+    href="../img/G.png">
 
   <style>
+    @font-face {
+  font-family: 'Brice-Bold';
+  src: url('../fonts/Brice-BoldSemiCondensed.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'BasisGrotesque-Regular';
+  src: url('../fonts/BasisGrotesqueArabicPro-Regular.ttf') format('truetype');
+}
+
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body{
+  background-color: #fefaf1 !important;
+  font-family: 'BasisGrotesque-Regular';
+}
+
     .formulario {
+      border-top: 3px solid #fc8835 !important;
       width: 50%;
       padding: 7%;
       margin: 5%;
     }
 
     #form {
-      border: 1px black !important;
+      border-top: 3px solid #fc8835 !important;
+      border: 1px black;
       border-radius: 15px;
       box-shadow: 1px 1px 10px -5px black !important;
     }
 
     #botao {
       width: 70%;
-      background-color: orange;
+      background-color: #ff9a52;
       border: 0px solid;
-      font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
       letter-spacing: 1px;
       transition: 0.5s;
     }
@@ -38,7 +64,7 @@
     }
 
     #cadastro {
-      color: orange;
+      color: #ff9a52;
     }
 
     .error-message {
@@ -50,9 +76,9 @@
 </head>
 
 <body>
-  <nav class="navbar navbar-expand-lg custom-navbar">
-    <div class="container-fluid">
-      <a class="navbar-brand" href="#">Logo</a>
+<nav class="navbar navbar-expand-lg custom-navbar" id="gblur">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="index.html"><img style= "height: 90px;" src="../img/Guiar.png" alt="LOGO"></img></a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
         aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -63,13 +89,10 @@
             <a class="nav-link" href="../index.html">Home</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" id="ativado" href="loginEmpresa.html">Empresa</a>
+            <a class="nav-link" id="ativado" href="loginEmpresa.php">Empresa</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="../ENTREGADOR/loginEntregador.php">Entregador</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">Contato</a>
           </li>
         </ul>
       </div>

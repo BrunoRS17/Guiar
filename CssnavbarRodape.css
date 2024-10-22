@@ -1,5 +1,5 @@
 .custom-navbar {
-    background-color: #ffffff00;
+    background-color: #ffa84441;
     padding: 0px 25px 0px 25px;
     width: 100%;
     z-index: 1000;
@@ -21,7 +21,7 @@
   }
   
   .navbar-brand {
-    color: white !important;
+    color: rgb(0, 0, 0) !important;
   }
   
   .content {
@@ -30,16 +30,16 @@
   }
   
   .footer {
+    margin-top: 30px;
+    border-top: 1px solid #001530 ;
     bottom: 0;
     width: 100%;
     background: rgb(233, 161, 102) !important;
-    backdrop-filter: blur(8px) !important;
-    color: white;
     padding: 1rem;
   }
   
   .footer a {
-    color: white;
+    color: rgb(0, 0, 0);
     text-decoration: none;
     margin: 0 5px;
   }

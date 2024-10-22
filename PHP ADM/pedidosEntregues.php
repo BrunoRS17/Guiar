@@ -20,6 +20,10 @@ if (!isset($_SESSION['nome_usuario'])) {
             <meta charset="UTF-8">
             <meta name="viewport" content="width=device-width, initial-scale=1.0">
             <title>Erro de Acesso</title>
+            <link
+    rel="Shortcut Icon" 
+    type="image/png"
+    href="../img/G.png">
             <style>
                 body {
                     font-family: Arial, sans-serif;

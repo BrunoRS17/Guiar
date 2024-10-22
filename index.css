@@ -4,6 +4,11 @@
 }
 
 @font-face {
+  font-family: 'Brice-BoldSemiCondensed';
+  src: url('fonts/Brice-BoldSemiCondensed.ttf') format('truetype');
+}
+
+@font-face {
   font-family: 'BasisGrotesque-Regular';
   src: url('fonts/BasisGrotesqueArabicPro-Regular.ttf') format('truetype');
 }
@@ -15,12 +20,13 @@
 }
 
 body{
-  background-color: #fffaf1 ;
+  background-color: #fefaf1 !important;
   font-family: 'BasisGrotesque-Regular';
 }
 /*#f2efe1*/
 
 .landing{
+  padding-top: 50px;
   min-block-size: 780px;
 }
 
@@ -42,6 +48,7 @@ body{
   border-top-left-radius: 2px;
   font-size: 18px;
   text-align: justify;
+  animation: border-animation 1s ease-in-out; /* Duração da animação */
 }
 
 .landing img{
@@ -63,19 +70,9 @@ body{
   margin-bottom: 150px;
 }
 
-.bloco-em-cima {
-  margin-top: 300px;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  background-color: #ffc06e; /* Cor de fundo do bloco */
-  padding: 20px;
-  border-radius: 2px;
-}
-
-.container{
-  background-color: antiquewhite;
+.container-slider{
+  margin-top: 50px;
+  background-color: transparent;
   width: 100vw;
 }
 
@@ -84,8 +81,10 @@ li{
 }
 
 .logos{
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.589);
+  padding-top: 10px ;
   max-width: 1000px;
-  margin: 0 auto;
+  margin: auto;
   overflow: hidden;
 }
 
@@ -103,6 +102,59 @@ li{
 .logos img{
   width: 150px;
   filter: grayscale(20%);
+}
+
+.titulo{
+  margin-bottom: 25px;
+  font-family: 'Brice-Bold';
+  font-size: 70px;
+  -webkit-text-stroke-width: 2px;
+  -webkit-text-stroke-color: #131646;
+  -webkit-text-fill-color: #ff9a52;
+}
+
+.card-container {
+  margin-bottom: 50px;
+  padding: 150px 50px 150px 50px;
+  background: url(img/background-guiar.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  display: flex;
+  gap: 30px;
+  border-bottom: 5px solid rgb(219, 99, 23);
+}
+
+.card {
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.589);
+  padding: 30px;
+  width: 300px;
+  text-align: center;
+}
+
+.card h2 {
+  font-family: 'Brice-BoldSemiCondensed';
+  font-size: 30px;
+  margin-bottom: 15px;
+  color: #333;
+}
+
+.card p {
+  font-size: 16px;
+  line-height: 1.5;
+  color: #666;
+}
+
+@keyframes border-animation {
+  0% {
+    border-left-height: 0px; /* Borda inicial com largura 0 */
+    border-left-color: transparent; /* Cor transparente */
+  }
+  100% {
+    border-left-height: 200px; /* Borda final com largura definida */
+    border-left-color: #0c104b; /* Cor final da borda */
+  }
 }
 
 @keyframes slide{
