@@ -1,12 +1,18 @@
 .custom-navbar {
-    background: rgb(233, 161, 102) !important;
-    padding: 1rem;
+    background-color: #ffffff00;
+    padding: 0px 25px 0px 25px;
     width: 100%;
     z-index: 1000;
+    position: sticky;
+    top: 0;
+    border-bottom: 1px solid #001530;
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
   }
   
   .navbar-nav .nav-link {
-    color: white !important;
+    font-size: 18px;
+    color: rgb(17, 17, 17) !important;
     transition: color 0.3s;
   }
   

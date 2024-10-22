@@ -13,9 +13,10 @@
 </head>
 
 <body>
-    <nav class="navbar navbar-expand-lg custom-navbar">
+    <!--CABEÇALHO-->
+    <nav class="navbar navbar-expand-lg custom-navbar" id="gblur">
         <div class="container-fluid">
-            <a class="navbar-brand" href="index.html">Logo</a>
+            <a class="navbar-brand" href="index.html"><img style= "height: 90px;" src="img/Guiar.png" alt="LOGO"></a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
                 aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -31,33 +32,37 @@
                     <li class="nav-item">
                         <a class="nav-link" href="ENTREGADOR/loginEntregador.php">Entregador</a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Contato</a>
-                    </li>
                 </ul>
             </div>
         </div>
     </nav>
 
-    <div class="imagemfundo">
-    <div class="container-fluid">
-        <div class="row align-items-center">
-            <div class="col-md-6 text-center" id="conteudoTexto">
-                <h2 style="font-family: 'Brice-Bold', sans-serif; font-weight: 700; font-size: 70px; margin-bottom: 30px;">Bem-vindo ao GUIAR!</h2>
-                <br>
-                <p>O GUIAR é um sistema inteligente que cria as rotas mais eficazes para seus entregadores, considerando
-                    múltiplos pontos de entrega e priorizando a otimização do tempo e do percurso. Nossa plataforma foi
-                    projetada para ajudar empresas de entrega a atribuir pedidos de forma eficiente aos motoboys,
-                    garantindo que cada entrega seja realizada da melhor maneira possível.</p>
-                <br>
-                <p>GUIAR é um Trabalho de Conclusão de Curso da Etec Euro Albino de Souza, desenvolvido por alunos de
-                    3°Ano do ensino médio integrado com o curso Técnico em Desenvolvimento de Sistemas de 2024.</p>
-                <br>
+    <!--LANDING-->
+    <div class="landing">
+        <div class="container-fluid">
+            <div class="row align-items-center">
+                <div class="col-md-6 text-center">
+                    <div id="landing-texto">
+                    <h2>Bem-vindo ao GUIAR!</h2>
+                    <br>
+                    <p>O GUIAR é um sistema inteligente que cria as rotas mais eficazes para seus entregadores, considerando
+                        múltiplos pontos de entrega e priorizando a otimização do tempo e do percurso. Nossa plataforma foi
+                        projetada para ajudar empresas de entrega a atribuir pedidos de forma eficiente aos motoboys,
+                        garantindo que cada entrega seja realizada da melhor maneira possível.</p>
+                    <br>
+                    <!--<p>GUIAR é um Trabalho de Conclusão de Curso da Etec Euro Albino de Souza, desenvolvido por alunos de
+                        3°Ano do ensino médio integrado com o curso Técnico em Desenvolvimento de Sistemas de 2024.</p>-->
+                    <br>
+                    </div>
+                </div>
+                <div class="col-md-6 text-center">
+                    <img src="img/img-index1.png" alt="Motoboy">
+                </div>
             </div>
-            <div class="col-md-6 text-center" id="corfundo"></div>
         </div>
     </div>
-    </div>
+    
+    <!--PRINCIPAIS RECURSOS-->
     <div class="container-fluid">
         <div class="row align-items-center">
             <div class="col-md-12 text-center" id="conteudoTexto">
@@ -74,8 +79,9 @@
             </div>
         </div>
     </div>
-      
-      <div class="col-md-12">
+    
+    <!--SLIDER PATROCÍNIOS-->
+    <div class="col-md-12">
         <div class="container">
             <div class="logos">
                 <ul>
@@ -103,9 +109,9 @@
                 </ul>
             </div>
         </div>
-        </div>
+    </div>
 
-<!--ADASDasdasda-->
+    <!--RODAPÉ-->
     <footer class="footer bg-dark text-white text-center">
         <div class="container p-3">
             <p>&copy; 2024 GUIAR. Todos os direitos reservados.</p>
