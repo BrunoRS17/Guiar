@@ -1,5 +1,5 @@
 <?php
-require '../config.php';
+require '../../config.php';
 session_start();
 
 $id_entregador = $_SESSION['entregadorID'];

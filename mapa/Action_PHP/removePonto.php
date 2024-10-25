@@ -1,6 +1,6 @@
 <?php
 // Conectar ao banco de dados
-require '../config.php'; // Inclua aqui seu arquivo de conexão com o banco de dados
+require '../../config.php'; // Inclua aqui seu arquivo de conexão com o banco de dados
 session_start();
 $id_entregador = $_SESSION['entregadorID'];
 
