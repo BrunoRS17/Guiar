@@ -181,9 +181,13 @@ try {
       <?php
       if (count($result) > 0) {
         foreach ($result as $row) {
+          // Caminho da imagem com o nome da empresa e o nome do arquivo da foto
+          $imagem_path = "admin_fotos/" . htmlspecialchars($nome_empresa) . "/" . htmlspecialchars($row["nome_foto"]);
       ?>
-          <div class="col-md-4">
+            <div class="col-md-4">
             <div class="card">
+              <!-- Exibe a foto do administrador com tamanho padrão -->
+              <img src="<?php echo $imagem_path; ?>" class="card-img-top" alt="Foto do Administrador" style="width: 100%; height: 300px; object-fit: cover;">
               <div class="card-body">
                 <h5 class="card-title"><?php echo htmlspecialchars($row["nome_adm"]); ?></h5>
                 <button class="btn" data-toggle="modal" data-target="#loginModal" data-username="<?php echo htmlspecialchars($row["nome_usuario"]); ?>">Entrar</button>
@@ -197,7 +201,6 @@ try {
       }
       ?>
     </div>
-  </div>
 
   <!-- Modal de Login -->
   <div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="loginModalLabel" aria-hidden="true">
@@ -286,40 +289,42 @@ try {
   <button class="btn fixed-button" data-toggle="modal" data-target="#addAdminModal">Adicionar Administrador</button>
 
   <!-- Modal de Adicionar Administrador -->
-  <div class="modal fade" id="addAdminModal" tabindex="-1" aria-labelledby="addAdminModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="addAdminModalLabel">Adicionar Administrador</h5>
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button>
-        </div>
-        <form action="adicionarAdm.php" method="post" enctype="multipart/form-data">
-          <div class="modal-body">
-            <div class="form-group">
-              <label for="adminNome">Nome Completo</label>
-              <input type="text" class="form-control" id="adminNome" name="adminNome" required>
-            </div>
-            <div class="form-group">
-              <label for="adminUsername">Nome de Usuário</label>
-              <input type="text" class="form-control" id="adminUsername" name="adminUsername" required>
-            </div>
-            <div class="form-group">
-              <label for="adminPassword">Senha</label>
-              <input type="password" class="form-control" id="adminPassword" name="adminPassword" required>
-            </div>
-
-          </div>
-          <div class="modal-footer">
-
-            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
-            <button type="submit" class="btn btn-primary">Salvar</button>
-          </div>
-        </form>
+<div class="modal fade" id="addAdminModal" tabindex="-1" aria-labelledby="addAdminModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="addAdminModalLabel">Adicionar Administrador</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
       </div>
+      <form action="adicionarAdm.php" method="post" enctype="multipart/form-data">
+        <div class="modal-body">
+          <div class="form-group">
+            <label for="adminNome">Nome Completo</label>
+            <input type="text" class="form-control" id="adminNome" name="adminNome" required>
+          </div>
+          <div class="form-group">
+            <label for="adminUsername">Nome de Usuário</label>
+            <input type="text" class="form-control" id="adminUsername" name="adminUsername" required>
+          </div>
+          <div class="form-group">
+            <label for="adminPassword">Senha</label>
+            <input type="password" class="form-control" id="adminPassword" name="adminPassword" required>
+          </div>
+          <div class="form-group">
+            <label for="adminFoto">Foto do Administrador</label>
+            <input type="file" class="form-control-file" id="adminFoto" name="adminFoto" accept="image/*" required>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+          <button type="submit" class="btn btn-primary">Salvar</button>
+        </div>
+      </form>
     </div>
   </div>
+</div>
 
   <script>
     // Adiciona o ID da empresa ao formulário antes de enviar commit2

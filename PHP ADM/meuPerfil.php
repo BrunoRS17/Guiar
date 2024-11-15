@@ -118,6 +118,10 @@ try {
     <title>Meu Perfil</title>
     <style>
         body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh; /* Garante que a altura da tela ocupe toda a viewport */
             margin: 0;
             font-family: Arial, sans-serif;
         }
@@ -158,22 +162,57 @@ try {
 
         /* Estilo do card */
         .card {
-            width: 500px;
-            margin: 20px auto;
-            padding: 20px;
-            border: 1px solid #ccc;
-            border-radius: 8px;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            max-width: 500px;
+            margin: 40px auto;
+            padding: 30px;
+            background-color: #fff;
+            border-radius: 12px;
+            box-shadow: 0 8px 16px rgba(153, 87, 34, 0.15);
             text-align: center;
+            transition: box-shadow 0.3s;
+        }
+
+        .card:hover {
+            box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
         }
 
         .card img {
-            width: 320px;
-            height: 350px;
+            width: 400px;
+            height: 400px;
             border-radius: 50%;
-            margin-bottom: 15px;
+            margin-bottom: 20px;
+            object-fit: cover;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
         }
 
+        .card h1 {
+            font-size: 35px;
+            color: black;
+            margin-bottom: 10px;
+        }
+
+        .card p {
+            font-size: 20px;
+            color: #666;
+            margin: 5px 0;
+        }
+
+        .card button {
+            padding: 10px 20px;
+            font-size: 19px;
+            color: #fff;
+            background-color: #e06c00;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .card button:hover {
+            background-color:#FFA500;
+        }
+
+        /* Estilo para posicionar o botão no canto superior direito */
         .logout-btn {
             position: absolute;
             top: 20px;
@@ -190,6 +229,72 @@ try {
         .logout-btn:hover {
             background-color: red;
         }
+        
+         /* Estilos do Modal */
+         .modal {
+            display: none; /* Inicialmente escondido */
+            position: fixed;
+            z-index: 1;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgb(0,0,0); 
+            background-color: rgba(0,0,0,0.4); /* Cor de fundo semitransparente */
+            padding-top: 60px;
+        }
+
+        /* Modal Conteúdo */
+        .modal-content {
+            background-color: #fefefe;
+            margin: 5% auto;
+            padding: 20px;
+            border: 1px solid #888;
+            width: 80%;
+            max-width: 500px;
+            border-radius: 8px;
+        }
+
+        /* Botões do Modal */
+        .close {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+        }
+
+        .close:hover,
+        .close:focus {
+            color: black;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        .modal-input {
+            width: 99%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        .modal-button {
+            padding: 10px 20px;
+            background-color: #e06c00;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            margin-top: 10px;
+        }
+
+        .modal-button:hover {
+            background-color: #FFA500;
+        }
+
+   
     </style>
 </head>
 <body>
@@ -202,17 +307,56 @@ try {
         <a href="">Meu perfil</a>
     </div>
 
-    <!-- Botão de logout -->
     <a href="indexAdm.php?logout=true" class="logout-btn">Logout</a>
 
     <div class="main">
         <div class="card">
             <img src="<?php echo htmlspecialchars($caminho_foto); ?>" alt="Foto do Administrador">
-            <h5><?php echo htmlspecialchars($admin['nome_adm']); ?></h5>
+            <h1><?php echo htmlspecialchars($admin['nome_adm']); ?></h1>
             <p>Usuário: <?php echo htmlspecialchars($admin['nome_usuario']); ?></p>
-            <p>Senha: *********</p> <!-- Escondido por segurança -->
-            <button class="btn btn-primary" onclick="location.href='editarPerfil.php'">Editar</button>
+            <p>Senha: *********</p>  <br><!-- Escondido por segurança -->
+            <button onclick="openModal()">Editar</button>
         </div>
     </div>
+
+
+    <!-- Modal para Edição -->
+    <div id="editModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <h2>Editar Perfil</h2>
+            <form method="POST" action="modais/editarPerfil.php">
+                <label for="nome_adm">Nome:</label>
+                <input type="text" id="nome_adm" name="nome_adm" class="modal-input" value="<?php echo htmlspecialchars($admin['nome_adm']); ?>" required>
+
+                <label for="nome_usuario">Usuário:</label>
+                <input type="text" id="nome_usuario" name="nome_usuario" class="modal-input" value="<?php echo htmlspecialchars($admin['nome_usuario']); ?>" required>
+
+                <label for="senha">Senha:</label>
+                <input type="password" id="senha" name="senha" class="modal-input" placeholder="*********" required>
+
+                <button type="submit" class="modal-button">Salvar alterações</button>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        // Função para abrir o modal
+        function openModal() {
+            document.getElementById("editModal").style.display = "block";
+        }
+
+        // Função para fechar o modal
+        function closeModal() {
+            document.getElementById("editModal").style.display = "none";
+        }
+
+        // Fechar o modal se o usuário clicar fora da área do modal
+        window.onclick = function(event) {
+            if (event.target == document.getElementById("editModal")) {
+                closeModal();
+            }
+        }
+    </script>
 </body>
 </html>
