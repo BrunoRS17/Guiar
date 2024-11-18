@@ -23,7 +23,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $stmt->bindParam(':id', $userId);
     $stmt->execute();
 
-    // Remover o token usado
+    // Remover o token usado comita por favor
     $stmt = $pdo->prepare("DELETE FROM password_resets WHERE token = :token");
     $stmt->bindParam(':token', $token);
     $stmt->execute();
@@ -39,6 +39,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <title>Redefinir senha</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <style>
+        
         body {
             background-color: #f8f9fa;
             font-family: 'Arial', sans-serif;
@@ -69,6 +70,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
         .form-container .btn-primary:hover {
             background-color: #d54e21;
+            
            
         }
 

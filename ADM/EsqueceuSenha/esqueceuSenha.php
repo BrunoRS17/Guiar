@@ -28,7 +28,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $token = bin2hex(random_bytes(32));
     $expiry = date('Y-m-d H:i:s', strtotime('+1 hour'));
 
-    // Inserir o token no banco de dados
+    // Inserir o token no banco de dados  comita por favor
     $stmt = $pdo->prepare("INSERT INTO password_resets (user_id, token, expiry) VALUES (:user_id, :token, :expiry)");
     $stmt->bindParam(':user_id', $userId);
     $stmt->bindParam(':token', $token);
