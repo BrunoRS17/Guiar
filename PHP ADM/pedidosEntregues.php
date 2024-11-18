@@ -82,6 +82,21 @@ if (isset($_GET['logout'])) {
 
 $nomeAdmin = $_SESSION['nome_usuario'];
 
+// Verifica se o botão "Finalizar Turno" foi clicado
+if (isset($_POST['finalizar_turno'])) {
+    try {
+        $sqlDelete = "DELETE FROM pedido WHERE status = 'entregue' AND id_empresa = :company_id";
+        $stmtDelete = $pdo->prepare($sqlDelete);
+        $stmtDelete->bindParam(':company_id', $company_id, PDO::PARAM_INT);
+        $stmtDelete->execute();
+        echo "<script>alert('Turno finalizado! Todos os pedidos entregues foram removidos.');</script>";
+        header("Refresh:0"); // Recarrega a página para atualizar a lista de pedidos
+        exit();
+    } catch (PDOException $e) {
+        echo "Erro ao finalizar turno: " . $e->getMessage();
+    }
+}
+
 try {
     // Consulta para buscar pedidos com status "entregue" e o nome do entregador na tabela "pedido_entregue"
     $sql = "
@@ -199,6 +214,25 @@ try {
             background-color: red;
         }
 
+
+        /* finalizar turno */
+        .finalizar-btn {
+        position: fixed;
+        bottom: 100px;
+        right: 20px; /* Alterado de 'left' para 'right' */
+        padding: 10px 20px;
+        background-color: #e06c00;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 16px;
+        }
+
+        .finalizar-btn:hover {
+            background-color: #c9302c;
+        }
+
     </style>
 </head>
 <body>
@@ -237,5 +271,10 @@ try {
             ?>
         </div>
     </div>
+
+     <!-- Botão "Finalizar Turno" -->
+     <form method="POST">
+        <button type="submit" name="finalizar_turno" class="finalizar-btn">Finalizar Turno</button>
+    </form>
 </body>
 </html>

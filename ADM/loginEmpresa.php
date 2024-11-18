@@ -136,6 +136,7 @@ window.onload = function() {
             <div class="mb-3">
               <label for="exampleInputPassword1" class="form-label">Senha</label>
               <input type="password" class="form-control" id="exampleInputPassword1" name="password" required>
+              <a id="cadastro" href="EsqueceuSenha/esqueceuSenha.php">Esqueceu sua senha?</a>
             </div>
             <br>
             <input type="submit" class="btn btn-primary" id="botao" value="Entrar"><br>
