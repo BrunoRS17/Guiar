@@ -20,10 +20,17 @@
 }
 
 body{
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden; /* Impede o scroll horizontal */
   background-color: #fefaf1 !important;
   font-family: 'BasisGrotesque-Regular';
+  max-width: 100%;
 }
-/*#f2efe1*/
+
+*, *::before, *::after {
+  box-sizing: inherit;
+}
 
 .landing{
   padding-top: 50px;
@@ -51,8 +58,16 @@ body{
   animation: border-animation 1s ease-in-out; /* Duração da animação */
 }
 
+.landing .container-fluid {
+  overflow: hidden; /* Remove excesso de conteúdo horizontal */
+  padding: 0; /* Remove espaçamento extra */
+}
+
 .landing img{
-  width: 650px;
+  width: 625px;
+  max-width: 100%;
+  display: block;
+  height: auto;
 }
 
 #conteudoTexto{
@@ -70,38 +85,39 @@ body{
   margin-bottom: 150px;
 }
 
-.container-slider{
+.container-slider {
   margin-top: 50px;
-  background-color: transparent;
-  width: 100vw;
+  background-color: #f4f4f4; /* Fundo mais claro */
+  width: 100%; /* Responsivo */
+  overflow: hidden; /* Garante que nada fora do contêiner seja exibido */
+  border: 1px solid #ddd; /* Borda leve */
+  border-radius: 8px; /* Bordas arredondadas */
 }
 
-li{
-  list-style: none;
-}
-
-.logos{
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.589);
-  padding-top: 10px ;
-  max-width: 1000px;
+.logos {
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Sombra mais suave */
+  padding: 10px 0;
+  max-width: 100%; /* Ocupa todo o espaço disponível */
   margin: auto;
   overflow: hidden;
 }
 
-.logos ul{
+.logos ul {
   display: flex;
   align-items: center;
-  gap: 40px;
-  animation: 10s infinite slide linear;
+  gap: 40px; /* Espaçamento entre os itens */
+  animation: slide 10s linear infinite; /* Animação infinita */
 }
 
-.logos ul:hover{
-  animation-play-state: paused;
+.logos ul:hover {
+  animation-play-state: paused; /* Pausa a animação ao passar o mouse */
 }
 
-.logos img{
-  width: 150px;
+.logos img {
+  width: 150px; /* Tamanho responsivo */
+  height: auto; /* Mantém a proporção das imagens */
   filter: grayscale(20%);
+  object-fit: contain; /* Garante que as imagens não distorçam */
 }
 
 .titulo{
@@ -114,17 +130,17 @@ li{
 }
 
 .card-container {
+  padding: 30px;
   margin-bottom: 50px;
   padding: 150px 50px 150px 50px;
   background: url(img/background-guiar.jpg);
   background-repeat: no-repeat;
   background-size: cover;
-  display: flex;
-  gap: 30px;
-  border-bottom: 5px solid rgb(219, 99, 23);
+  display: inline-flex;
+  border-bottom: 4px solid rgb(219, 99, 23);
 }
 
-.card {
+.card-body {
   background-color: #fff;
   border-radius: 10px;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.589);
@@ -133,14 +149,14 @@ li{
   text-align: center;
 }
 
-.card h2 {
+.card-body h5 {
   font-family: 'Brice-BoldSemiCondensed';
   font-size: 30px;
   margin-bottom: 15px;
   color: #333;
 }
 
-.card p {
+.card-text {
   font-size: 16px;
   line-height: 1.5;
   color: #666;
@@ -157,11 +173,11 @@ li{
   }
 }
 
-@keyframes slide{
-  from{
+@keyframes slide {
+  0% {
     transform: translateX(0);
   }
-  to{
-    transform: translateX(-840px);
+  100% {
+    transform: translateX(calc(-150px * 7)); /* Move todo o conteúdo uma vez */
   }
 }
