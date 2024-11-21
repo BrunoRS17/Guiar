@@ -89,8 +89,50 @@ $result = $stmt->fetchAll();
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dashboard dos Motoboys</title>
     <link rel="stylesheet" href="../CSSadm/entregadores.css">
-
+    <link
+    rel="Shortcut Icon" 
+    type="image/png"
+    href="../img/G.png">
     <style>
+        @font-face {
+            font-family: 'Brice-Bold';
+            src: url('../fonts/Brice-BoldSemiCondensed.ttf') format('truetype');
+        }
+
+        @font-face {
+            font-family: 'BasisGrotesque-Regular';
+            src: url('../fonts/BasisGrotesqueArabicPro-Regular.ttf') format('truetype');
+        }
+
+        @font-face {
+            font-family: 'Brice-SemiBoldSemi';
+            src: url('../fonts/Brice-SemiBoldSemiCondensed.ttf');
+        }
+
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body{
+            background-color: #fefaf1 !important;
+            font-family: 'BasisGrotesque-Regular';
+        }
+
+        .card {
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            padding: 15px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.4);
+            border-left: 7px solid #e06c00;
+            border-radius: 5px;
+            margin-bottom: 15px;
+            background-color: #f9f9f9;
+            min-width: 35%;
+            transition: 0.5s;
+        }
 
 .card-actions {
     margin-top: 15px;
@@ -107,10 +149,31 @@ $result = $stmt->fetchAll();
     margin-left: 10px;
         }
 
+        .card h3 {
+            font-family: 'Brice-SemiBoldSemi';
+        }
 
 .card-actions button:hover {
-    background-color: #f3bd0a;
+    color: white;
+      background-color: #ff7b00;
+      transform: scale(1.05);
+      border-bottom-right-radius: 0px;
+      border-top-left-radius: 0px;
 }
+
+        button {
+            font-family: 'BasisGrotesque-Regular';
+            transition: 0.5s;
+            background-color: #fc8835;
+        }
+
+        button:hover{
+            color: white;
+      background-color: #ff7b00;
+      transform: scale(1.05);
+      border-bottom-right-radius: 0px;
+      border-top-left-radius: 0px;
+        }
 
  /* Estilo para posicionar o botão no canto superior direito */
  .logout-btn {
@@ -118,16 +181,21 @@ $result = $stmt->fetchAll();
             top: 20px;
             right: 20px;
             padding: 10px 20px;
-            background-color: #e06c00;
+            background-color: #fc8835;
             color: white;
             border: none;
             border-radius: 5px;
             cursor: pointer;
             font-size: 14px;
+            transition: 0.5s;
         }
 
         .logout-btn:hover {
-            background-color: red;
+            color: white;
+      background-color: #ff7b00;
+      transform: scale(1.05);
+      border-bottom-right-radius: 0px;
+      border-top-left-radius: 0px;
         }
 
     </style>    
@@ -163,7 +231,7 @@ $result = $stmt->fetchAll();
                 </div>
             <?php endforeach; ?>
         <?php else: ?>
-            <p>Nenhum motoboy encontrado</p>
+            <p>Nenhum motoboy encontrado...</p>
         <?php endif; ?>
     </div>
 

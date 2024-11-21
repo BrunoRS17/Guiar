@@ -101,15 +101,55 @@ try {
   <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
   <title>Perfis de Administradores</title>
+  <link
+    rel="Shortcut Icon" 
+    type="image/png"
+    href="../img/G.png">
   <style>
+        @font-face {
+            font-family: 'Brice-Bold';
+            src: url('../fonts/Brice-BoldSemiCondensed.ttf') format('truetype');
+        }
+
+        @font-face {
+            font-family: 'BasisGrotesque-Regular';
+            src: url('../fonts/BasisGrotesqueArabicPro-Regular.ttf') format('truetype');
+        }
+
+        @font-face {
+            font-family: 'Brice-SemiBoldSemi';
+            src: url('../fonts/Brice-SemiBoldSemiCondensed.ttf');
+        }
+
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body{
+            background-color: #fefaf1 !important;
+            font-family: 'BasisGrotesque-Regular';
+        }
+
     .container {
       margin-top: 50px;
+    }
+
+    .container h1{
+      font-family: 'Brice-Bold';
+    }
+
+    .container h1 spam {
+      -webkit-text-stroke-width: 1px;
+      -webkit-text-stroke-color: #131646;
+      -webkit-text-fill-color: #ff9a52;
     }
 
     .card {
       margin: 15px;
       border: 1px solid #ccc;
-      border-radius: 8px;
+      border-radius: 5px;
       box-shadow: 2px 2px 12px rgba(0, 0, 0, 0.1);
       overflow: hidden;
     }
@@ -119,21 +159,27 @@ try {
     }
 
     .card-title {
-      font-size: 1.25rem;
+      font-size: 1.5rem;
       margin-bottom: 15px;
+      font-family: 'Brice-SemiBoldSemi';
     }
 
     .btn {
-      background-color: #ff7b00;
+      background-color: #fc8835;
       color: white;
       padding: 10px 20px;
       border: none;
       border-radius: 5px;
       cursor: pointer;
+      transition: 0.5s;
     }
 
     .btn:hover {
-      background-color: #f3bd0a;
+      color: white;
+      background-color: #ff7b00;
+      transform: scale(1.05);
+      border-bottom-right-radius: 0px;
+      border-top-left-radius: 0px;
     }
 
     .fixed-button {
@@ -149,16 +195,21 @@ try {
       top: 20px;
       right: 20px;
       padding: 10px 20px;
-      background-color: #ff4d4d;
+      background-color: #fc8835;
       color: white;
       border: none;
       border-radius: 5px;
       cursor: pointer;
       font-size: 14px;
+      transition: 0.5s;
     }
 
     .logout-btn:hover {
-      background-color: #ff3333;
+      color: white;
+      background-color: #ff7b00;
+      transform: scale(1.05);
+      border-bottom-right-radius: 0px;
+      border-top-left-radius: 0px;
     }
     #error-message {
               color: #d8000c;
@@ -175,7 +226,7 @@ try {
   <a href="escolherAdm.php?logout=true" class="logout-btn">Logout</a>
 
   <div class="container">
-    <h1>Administradores da Empresa: <?php echo htmlspecialchars($nome_empresa); ?></h1>
+    <h1>Administradores da Empresa: <spam><?php echo htmlspecialchars($nome_empresa); ?></spam></h1>
 
     <div class="row">
       <?php
@@ -189,8 +240,10 @@ try {
               <!-- Exibe a foto do administrador com tamanho padrão -->
               <img src="<?php echo $imagem_path; ?>" class="card-img-top" alt="Foto do Administrador" style="width: 100%; height: 300px; object-fit: cover;">
               <div class="card-body">
+                <center>
                 <h5 class="card-title"><?php echo htmlspecialchars($row["nome_adm"]); ?></h5>
                 <button class="btn" data-toggle="modal" data-target="#loginModal" data-username="<?php echo htmlspecialchars($row["nome_usuario"]); ?>">Entrar</button>
+                </center>
               </div>
             </div>
           </div>
@@ -286,7 +339,7 @@ try {
   </script>
 
   <!-- Botão fixo "Adicionar Administrador" -->
-  <button class="btn fixed-button" data-toggle="modal" data-target="#addAdminModal">Adicionar Administrador</button>
+  <button class="btn fixed-button" data-toggle="modal" data-target="#addAdminModal"><spam> + </spam> Adicionar Administrador</button>
 
   <!-- Modal de Adicionar Administrador -->
 <div class="modal fade" id="addAdminModal" tabindex="-1" aria-labelledby="addAdminModalLabel" aria-hidden="true">

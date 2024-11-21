@@ -51,6 +51,11 @@ if (isset($_POST['entrar']) && !empty($_POST['email']) && !empty($_POST['senha']
             src: url('../fonts/BasisGrotesqueArabicPro-Regular.ttf') format('truetype');
         }
 
+        @font-face {
+            font-family: 'Brice-SemiBoldSemi';
+            src: url('../fonts/Brice-SemiBoldSemiCondensed.ttf') format('truetype');
+        }
+
         *{
             margin: 0;
             padding: 0;
@@ -67,16 +72,21 @@ if (isset($_POST['entrar']) && !empty($_POST['email']) && !empty($_POST['senha']
             padding: 7%;
             margin: 5%;
         }
+
+        .formulario h2{
+      font-family: 'Brice-SemiBoldSemi';
+    }
+
     #form {
       border-top: 3px solid #fc8835 !important;
       border: 1px black;
-      border-radius: 15px;
+      border-radius: 5px;
       box-shadow: 1px 1px 10px -5px black !important;
     }
 
     #botao {
       width: 70%;
-      background-color: #ff9a52;
+      background-color: #fc8835;
       border: 0px solid;
       letter-spacing: 1px;
       transition: 0.5s;
@@ -95,6 +105,12 @@ if (isset($_POST['entrar']) && !empty($_POST['email']) && !empty($_POST['senha']
     .error-message {
       color: red;
       font-weight: bold;
+    }
+
+    @media (max-width: 880px) {
+    .formulario {
+      width: 70%;
+    }
     }
   </style>
 </head>
@@ -127,7 +143,7 @@ if (isset($_POST['entrar']) && !empty($_POST['email']) && !empty($_POST['senha']
     <div class="row align-items-center">
       <center>
         <div class="formulario" id="form">
-          <h4>Login | Entregadores</h4>
+          <h2>Login | Entregadores</h2>
           <hr color="black" size="2px">
           <br>
 

@@ -121,10 +121,35 @@ try {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pedidos Entregues</title>
+    <link
+    rel="Shortcut Icon" 
+    type="image/png"
+    href="../img/G.png">
     <style>
-        body {
+        @font-face {
+            font-family: 'Brice-Bold';
+            src: url('../fonts/Brice-BoldSemiCondensed.ttf') format('truetype');
+        }
+
+        @font-face {
+            font-family: 'BasisGrotesque-Regular';
+            src: url('../fonts/BasisGrotesqueArabicPro-Regular.ttf') format('truetype');
+        }
+
+        @font-face {
+            font-family: 'Brice-SemiBoldSemi';
+            src: url('../fonts/Brice-SemiBoldSemiCondensed.ttf');
+        }
+
+        *{
             margin: 0;
-            font-family: Arial, sans-serif;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body{
+            background-color: #fefaf1 !important;
+            font-family: 'BasisGrotesque-Regular';
         }
 
         .sidebar {
@@ -179,12 +204,14 @@ try {
             border-radius: 5px;
             margin-bottom: 15px;
             background-color: #f9f9f9;
+            min-width: 35%;
         }
 
         .card h3 {
             margin: 0 0 10px;
             font-size: 20px;
             color: #333;
+            font-family: 'Brice-SemiBoldSemi';
         }
 
         .card p {
@@ -196,13 +223,27 @@ try {
          font-weight: bold;
         }
 
+        button {
+            font-family: 'BasisGrotesque-Regular';
+            transition: 0.5s;
+            background-color: #fc8835;
+        }
+
+        button:hover {
+            color: white;
+      background-color: #ff7b00;
+      transform: scale(1.05);
+      border-bottom-right-radius: 0px;
+      border-top-left-radius: 0px;
+        }
+
         /* Estilo para posicionar o botão no canto superior direito  comita por favor */
         .logout-btn {
             position: absolute;
             top: 20px;
             right: 20px;
             padding: 10px 20px;
-            background-color: #e06c00;
+            background-color: #fc8835;
             color: white;
             border: none;
             border-radius: 5px;
@@ -211,7 +252,11 @@ try {
         }
 
         .logout-btn:hover {
-            background-color: red;
+            color: white;
+      background-color: #ff7b00;
+      transform: scale(1.05);
+      border-bottom-right-radius: 0px;
+      border-top-left-radius: 0px;
         }
 
 
@@ -221,7 +266,7 @@ try {
         bottom: 100px;
         right: 20px; /* Alterado de 'left' para 'right' */
         padding: 10px 20px;
-        background-color: #e06c00;
+        background-color: #fc8835;
         color: white;
         border: none;
         border-radius: 5px;
@@ -230,7 +275,11 @@ try {
         }
 
         .finalizar-btn:hover {
-            background-color: #c9302c;
+            color: white;
+      background-color: #ff7b00;
+      transform: scale(1.05);
+      border-bottom-right-radius: 0px;
+      border-top-left-radius: 0px;
         }
 
     </style>

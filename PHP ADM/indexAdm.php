@@ -84,11 +84,37 @@ $nomeAdmin = $_SESSION['nome_usuario'];
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Menu Lateral</title>
+    <title>Index | Adminnistrador</title>
+    <link
+    rel="Shortcut Icon" 
+    type="image/png"
+    href="../img/G.png">
     <style>
-        body {
+        @font-face {
+            font-family: 'Brice-Bold';
+            src: url('../fonts/Brice-BoldSemiCondensed.ttf') format('truetype');
+        }
+
+        @font-face {
+            font-family: 'BasisGrotesque-Regular';
+            src: url('../fonts/BasisGrotesqueArabicPro-Regular.ttf') format('truetype');
+        }
+
+        @font-face {
+            font-family: 'Brice-SemiBoldSemi';
+            src: url('../fonts/Brice-SemiBoldSemiCondensed.ttf');
+        }
+
+        *{
             margin: 0;
-            font-family: Arial, sans-serif;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body{
+            margin: 0;
+            background-color: #fefaf1 !important;
+            font-family: 'BasisGrotesque-Regular';
         }
 
         .sidebar {
@@ -125,26 +151,44 @@ $nomeAdmin = $_SESSION['nome_usuario'];
             padding: 15px;
         }
 
+        .main h1 {
+            font-family: 'Brice-Bold';
+            font-size: 40px;
+        }
+
+        .main h1 spam {
+            -webkit-text-stroke-width: 1px;
+            -webkit-text-stroke-color: #131646;
+            -webkit-text-fill-color: #ff9a52;
+        }
+
           /* Estilo para posicionar o botão no canto superior direito */
           .logout-btn {
             position: absolute;
             top: 20px;
             right: 20px;
             padding: 10px 20px;
-            background-color: #e06c00;
+            background-color: #fc8835;
             color: white;
             border: none;
             border-radius: 5px;
             cursor: pointer;
             font-size: 14px;
+            transition: 0.5s;
         }
 
         .logout-btn:hover {
-            background-color: red;
+            background-color: #ff7b00;
+            transform: scale(1.05);
+            border-bottom-right-radius: 0px;
+            border-top-left-radius: 0px;
         }
     </style>
 </head>
 <body>
+<div class="container-fluid">
+<div class="row align-items-center">
+<div class="col-md-4">
     <div class="sidebar">
         <a href="../PHP ADM/indexAdm.php">Início</a>
         <a href="../PHP ADM/pedidos.php">Pedidos</a>
@@ -153,14 +197,15 @@ $nomeAdmin = $_SESSION['nome_usuario'];
         <div class="spacer"></div>
         <a href="../PHP ADM/meuPerfil.php">Meu perfil</a>
     </div>
-
+</div>
      <!-- Botão de logout -->
      <a href="indexAdm.php?logout=true" class="logout-btn">Logout</a>
 
     <div class="main">
        <!-- Exibe a mensagem de boas-vindas -->
-       <h1> <?php echo "Olá, " . htmlspecialchars($nomeAdmin) . "!"; ?></h1>
+       <h1>Olá, <spam><?php echo htmlspecialchars($nomeAdmin) . "!"; ?></spam></h1>
     </div>
-
+</div>
+</div>
 
 </html>

@@ -115,15 +115,41 @@ try {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Meu Perfil</title>
+    <title>Meu Perfil | Administrador</title>
+    <link
+    rel="Shortcut Icon" 
+    type="image/png"
+    href="../img/G.png">
     <style>
-        body {
+        @font-face {
+            font-family: 'Brice-Bold';
+            src: url('../fonts/Brice-BoldSemiCondensed.ttf') format('truetype');
+        }
+
+        @font-face {
+            font-family: 'BasisGrotesque-Regular';
+            src: url('../fonts/BasisGrotesqueArabicPro-Regular.ttf') format('truetype');
+        }
+
+        @font-face {
+            font-family: 'Brice-SemiBoldSemi';
+            src: url('../fonts/Brice-SemiBoldSemiCondensed.ttf');
+        }
+
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body{
+            background-color: #fefaf1 !important;
+            font-family: 'BasisGrotesque-Regular';
             display: flex;
             justify-content: center;
             align-items: center;
             min-height: 100vh; /* Garante que a altura da tela ocupe toda a viewport */
             margin: 0;
-            font-family: Arial, sans-serif;
         }
         
         .sidebar {
@@ -186,9 +212,13 @@ try {
         }
 
         .card h1 {
-            font-size: 35px;
+            font-family: 'Brice-Bold';
+            font-size: 40px;
             color: black;
             margin-bottom: 10px;
+            -webkit-text-stroke-width: 1px;
+      -webkit-text-stroke-color: #131646;
+      -webkit-text-fill-color: #ff9a52;
         }
 
         .card p {
@@ -201,15 +231,18 @@ try {
             padding: 10px 20px;
             font-size: 19px;
             color: #fff;
-            background-color: #e06c00;
+            background-color: #fc8835;
             border: none;
             border-radius: 8px;
             cursor: pointer;
-            transition: background-color 0.3s;
+            transition: 0.5s;
         }
 
         .card button:hover {
-            background-color:#FFA500;
+            background-color: #ff7b00;
+            transform: scale(1.05);
+            border-bottom-right-radius: 0px;
+            border-top-left-radius: 0px;
         }
 
         /* Estilo para posicionar o botão no canto superior direito */
@@ -218,16 +251,20 @@ try {
             top: 20px;
             right: 20px;
             padding: 10px 20px;
-            background-color: #e06c00;
+            background-color: #fc8835;
             color: white;
             border: none;
             border-radius: 5px;
             cursor: pointer;
             font-size: 14px;
+            transition: 0.5s;
         }
 
         .logout-btn:hover {
-            background-color: red;
+            background-color: #ff7b00;
+            transform: scale(1.05);
+            border-bottom-right-radius: 0px;
+            border-top-left-radius: 0px;
         }
         
          /* Estilos do Modal */
@@ -281,17 +318,21 @@ try {
 
         .modal-button {
             padding: 10px 20px;
-            background-color: #e06c00;
+            background-color: #fc8835;
             color: white;
             border: none;
             border-radius: 5px;
             cursor: pointer;
             font-size: 16px;
             margin-top: 10px;
+            transition: 0.5s;
         }
 
         .modal-button:hover {
-            background-color: #FFA500;
+            background-color: #ff7b00;
+            transform: scale(1.05);
+            border-bottom-right-radius: 0px;
+            border-top-left-radius: 0px;
         }
 
    

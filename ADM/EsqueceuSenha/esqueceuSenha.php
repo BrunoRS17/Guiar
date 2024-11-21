@@ -72,9 +72,19 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <title>Esqueceu sua senha</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <style>
+        @font-face {
+            font-family: 'BasisGrotesque-Regular';
+            src: url('../../fonts/BasisGrotesqueArabicPro-Regular.ttf') format('truetype');
+        }
+
+        @font-face {
+            font-family: 'Brice-SemiBoldSemi';
+            src: url('../../fonts/Brice-SemiBoldSemiCondensed.ttf');
+        }
+
         body {
             background-color: #f8f9fa;
-            font-family: 'Arial', sans-serif;
+            font-family: 'BasisGrotesque-Regular';
         }
 
         .form-container {
@@ -82,7 +92,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             margin: 50px auto;
             background: #fff;
             padding: 20px;
-            border-radius: 8px;
+            border-radius: 5px;
             box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
         }
 
@@ -92,6 +102,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             margin-bottom: 20px;
             color: #333;
             text-align: center;
+            font-family: 'Brice-SemiBoldSemi';
         }
 
         .form-container .btn-primary {
@@ -115,10 +126,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     </style>
 </head>
 <body>
+<div class="container-fluid">
+<div class="row align-items-center">
+    <center>
     <div class="form-container">
         <h1>Recuperar Senha</h1>
-
-     
             <form method="POST">
                 <div class="mb-3">
                     <label for="email" class="form-label">Digite o e-mail cadastrado</label>
@@ -126,8 +138,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 </div>
                 <button type="submit" class="btn btn-primary w-100">Enviar</button>
             </form>
-      
     </div>
+    </center>
+</div>
+</div>
 
     <footer>
         &copy; <?php echo date('Y'); ?> GUIAR. Todos os direitos reservados.

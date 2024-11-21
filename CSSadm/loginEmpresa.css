@@ -1,11 +1,16 @@
 @font-face {
   font-family: 'Brice-Bold';
-  src: url('fonts/Brice-BoldSemiCondensed.ttf') format('truetype');
+  src: url('../fonts/Brice-BoldSemiCondensed.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'Brice-BoldSemiCondensed';
+  src: url('../fonts/Brice-SemiBoldCondensed.ttf') format('truetype');
 }
 
 @font-face {
   font-family: 'BasisGrotesque-Regular';
-  src: url('fonts/BasisGrotesqueArabicPro-Regular.ttf') format('truetype');
+  src: url('../fonts/BasisGrotesqueArabicPro-Regular.ttf') format('truetype');
 }
 
 *{
@@ -53,7 +58,11 @@ body{
     background-color: #fdfbf8;
     border: 1px solid #ddd;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-   }
+  }
+   
+  .formulario h4{
+    font-family: 'Brice-BoldSemiCondensed';
+  }
 
    form aside{
     width: 55%;

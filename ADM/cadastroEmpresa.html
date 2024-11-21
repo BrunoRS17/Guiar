@@ -67,6 +67,11 @@
             src: url('../fonts/BasisGrotesqueArabicPro-Regular.ttf') format('truetype');
         }
 
+        @font-face {
+            font-family: 'Brice-SemiBoldSemi';
+            src: url('../fonts/Brice-SemiBoldSemiCondensed.ttf');
+        }
+
         *{
             margin: 0;
             padding: 0;
@@ -79,21 +84,25 @@
         }
 
         .formulario {
-            width: 50%;
+            width: 70%;
             padding: 7%;
             margin: 2%;
         }
 
+        .formulario h2{
+      font-family: 'Brice-SemiBoldSemi';
+    }
+
         #form {
             border-top: 3px solid #fc8835 !important;
             border: 1px black;
-            border-radius: 15px;
+            border-radius: 5px;
             box-shadow: 1px 1px 10px -5px black !important;
         }
 
         #botao {
             width: 70%;
-            background-color: #ff9a52;
+            background-color: #fc8835;
             border: 0px solid;
             letter-spacing: 1px;
             transition: 0.5s;
@@ -106,7 +115,19 @@
         }
 
         #cadastro {
-            color: ff9a52;
+            color: #000;
+            text-decoration: none;
+      
+        }
+
+        #cadastro spam {
+            color: #ff9a52;
+        }
+
+        @media (max-width: 915px) {
+            .formulario {
+                width: 85%;
+            }
         }
     </style>
 </head>
@@ -139,7 +160,7 @@
         <div class="row align-items-center">
             <center>
                 <div class="formulario" id="form">
-                    <h4>Cadastro | Empresa</h4>
+                    <h2>Cadastro | Empresa</h2>
                     <hr color="black" size="2px">
                     <br>
                     <form class="row g-3" method="post" action="../PHP ADM/cadastroEmpresa.php" id="cadaForm" enctype="multipart/form-data">
@@ -170,7 +191,8 @@
 
                         <div class="col-12">
                             <br>
-                            <button type="submit" class="btn btn-primary" id="botao">Fazer Cadastro</button>
+                            <button type="submit" class="btn btn-primary" id="botao">Fazer Cadastro</button><br>
+                            <a id="cadastro" href="../ADM/loginEmpresa.php">Não tem uma conta? <spam>Faça cadastro</spam></a>
                         </div>
                     </form>
                 </div>

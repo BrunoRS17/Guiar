@@ -115,7 +115,36 @@ try {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Gerenciamento de Pedidos</title>
     <link rel="stylesheet" href="../CSSadm/pedidos.css"> 
+    <link
+    rel="Shortcut Icon" 
+    type="image/png"
+    href="../img/G.png">
     <style>
+        @font-face {
+            font-family: 'Brice-Bold';
+            src: url('../fonts/Brice-BoldSemiCondensed.ttf') format('truetype');
+        }
+
+        @font-face {
+            font-family: 'BasisGrotesque-Regular';
+            src: url('../fonts/BasisGrotesqueArabicPro-Regular.ttf') format('truetype');
+        }
+
+        @font-face {
+            font-family: 'Brice-SemiBoldSemi';
+            src: url('../fonts/Brice-SemiBoldSemiCondensed.ttf');
+        }
+
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body{
+            background-color: #fefaf1 !important;
+            font-family: 'BasisGrotesque-Regular';
+        }
         /* cards */
         .card {
             position: relative;
@@ -127,6 +156,11 @@ try {
             border-radius: 5px;
             margin-bottom: 15px;
             background-color: #f9f9f9;
+            min-width: 35%;
+        }
+
+        .card h3 {
+            font-family: 'Brice-SemiBoldSemi';
         }
 
         .card-actions {
@@ -139,47 +173,59 @@ try {
             position: absolute;
             top: 10px;
             right: 10px;
+            border-radius: 5px;
         }
 
         .status {
             font-weight: bold;
-            color: #e06c00;
+            color: #ff7b00;
         }
 
         .fixed-buttons {
+            background-color: #fc8835;
+            font-family: 'BasisGrotesque-Regular';
             position: fixed;
             bottom: 20px;
             right: 20px;
             display: flex;
             flex-direction: column;
             gap: 10px;
+            transition: 0.5s;
         }
 
         .fixed-buttons button {
+            font-family: 'BasisGrotesque-Regular';
             padding: 10px 20px;
             font-size: 16px;
             cursor: pointer;
-            background-color: #e06c00;
+            background-color: #fc8835;
             color: white;
             border: none;
             border-radius: 5px;
+            transition: 0.5s;
         }
 
         .fixed-buttons button:hover {
-            background-color: #f3bd0a;
+            background-color: #ff7b00;
+            transform: scale(1.05);
+            border-bottom-right-radius: 0px;
+            border-top-left-radius: 0px;
         }
 
         /* Estilo para o formulário dentro do modal */
         #sendOrdersToDeliveryForm {
+            font-family: 'BasisGrotesque-Regular';
             display: flex;
             flex-direction: column;
         }
 
         #entregadoresContainer {
+            font-family: 'BasisGrotesque-Regular';
             margin-bottom: 15px;
         }
 
         select {
+            font-family: 'BasisGrotesque-Regular';
             padding: 10px;
             border: 1px solid #ccc;
             border-radius: 5px;
@@ -187,7 +233,8 @@ try {
         }
 
         button {
-            background-color: #e06c00;
+            font-family: 'BasisGrotesque-Regular';
+            background-color: #fc8835;
             color: white;
             padding: 10px;
             border: none;
@@ -197,7 +244,10 @@ try {
         }
 
         button:hover {
-            background-color: #f3bd0a;
+            background-color: #ff7b00;
+            transform: scale(1.05);
+            border-bottom-right-radius: 0px;
+            border-top-left-radius: 0px;
         }
 
         /* Estilo para campos ocultos */
@@ -211,7 +261,7 @@ try {
             top: 20px;
             right: 20px;
             padding: 10px 20px;
-            background-color: #e06c00;
+            background-color: #fc8835;
             color: white;
             border: none;
             border-radius: 5px;
@@ -220,7 +270,10 @@ try {
         }
 
         .logout-btn:hover {
-            background-color: red;
+            background-color: #ff7b00;
+      transform: scale(1.05);
+      border-bottom-right-radius: 0px;
+      border-top-left-radius: 0px;
         }
     </style>
 </head>

@@ -14,14 +14,19 @@
     href="../img/G.png">
 
   <style>
-    @font-face {
-  font-family: 'Brice-Bold';
+@font-face {
+  font-family: 'Brice-BoldSemi';
   src: url('../fonts/Brice-BoldSemiCondensed.ttf') format('truetype');
 }
 
 @font-face {
   font-family: 'BasisGrotesque-Regular';
   src: url('../fonts/BasisGrotesqueArabicPro-Regular.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'Brice-SemiBoldSemi';
+  src: url('../fonts/Brice-SemiBoldSemiCondensed.ttf');
 }
 
 *{
@@ -42,16 +47,20 @@ body{
       margin: 5%;
     }
 
+    .formulario h2{
+      font-family: 'Brice-SemiBoldSemi';
+    }
+
     #form {
       border-top: 3px solid #fc8835 !important;
       border: 1px black;
-      border-radius: 15px;
+      border-radius: 5px;
       box-shadow: 1px 1px 10px -5px black !important;
     }
 
     #botao {
       width: 70%;
-      background-color: #ff9a52;
+      background-color: #fc8835;
       border: 0px solid;
       letter-spacing: 1px;
       transition: 0.5s;
@@ -63,13 +72,29 @@ body{
       border-top-left-radius: 0px;
     }
 
+    #esqueceusenha{
+      color: #ff9a52;
+    }
+
     #cadastro {
+      color: #000;
+      text-decoration: none;
+      
+    }
+
+    #cadastro spam {
       color: #ff9a52;
     }
 
     .error-message {
       color: red;
       font-weight: bold;
+    }
+
+    @media (max-width: 880px) {
+    .formulario {
+      width: 70%;
+    }
     }
   </style>
 
@@ -103,7 +128,7 @@ body{
     <div class="row align-items-center">
       <center>
         <div class="formulario" id="form">
-          <h4>Login | Empresa</h4>
+          <h2>Login | Empresa</h2>
           <hr color="black" size="2px">
           <br>
 
@@ -136,11 +161,11 @@ window.onload = function() {
             <div class="mb-3">
               <label for="exampleInputPassword1" class="form-label">Senha</label>
               <input type="password" class="form-control" id="exampleInputPassword1" name="password" required>
-              <a id="cadastro" href="EsqueceuSenha/esqueceuSenha.php">Esqueceu sua senha?</a>
+              <a id="esqueceusenha" href="EsqueceuSenha/esqueceuSenha.php">Esqueceu sua senha?</a>
             </div>
             <br>
             <input type="submit" class="btn btn-primary" id="botao" value="Entrar"><br>
-            <a id="cadastro" href="cadastroEmpresa.html">Não tenho uma conta, Fazer cadastro</a>
+            <a id="cadastro" href="cadastroEmpresa.html">Não tem uma conta? <spam>Faça cadastro</spam></a>
           </form>
         </div>
       </center>
