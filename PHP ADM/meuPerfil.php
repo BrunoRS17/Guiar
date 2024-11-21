@@ -310,15 +310,14 @@ try {
     <a href="indexAdm.php?logout=true" class="logout-btn">Logout</a>
 
     <div class="main">
-        <div class="card">
-            <img src="<?php echo htmlspecialchars($caminho_foto); ?>" alt="Foto do Administrador">
-            <h1><?php echo htmlspecialchars($admin['nome_adm']); ?></h1>
-            <p>Usuário: <?php echo htmlspecialchars($admin['nome_usuario']); ?></p>
-            <p>Senha: *********</p>  <br><!-- Escondido por segurança -->
-            <button onclick="openModal()">Editar</button>
-        </div>
+    <div class="card">
+        <img src="<?php echo htmlspecialchars($caminho_foto); ?>" alt="Foto do Administrador">
+        <h1><?php echo htmlspecialchars($admin['nome_adm']); ?></h1>
+        <p>Usuário: <?php echo htmlspecialchars($admin['nome_usuario']); ?></p>
+        <p>Senha: <?php echo str_repeat('*', strlen($admin['senha'])); ?></p><br> <!-- Senha mascarada -->
+        <button onclick="openModal()">Editar</button>
     </div>
-
+</div>
 
     <!-- Modal para Edição -->
     <div id="editModal" class="modal">
@@ -333,7 +332,7 @@ try {
                 <input type="text" id="nome_usuario" name="nome_usuario" class="modal-input" value="<?php echo htmlspecialchars($admin['nome_usuario']); ?>" required>
 
                 <label for="senha">Senha:</label>
-                <input type="password" id="senha" name="senha" class="modal-input" placeholder="*********" required>
+                <input type="password" id="senha" name="senha" class="modal-input" value="<?php echo htmlspecialchars($admin['senha']); ?>" required>
 
                 <button type="submit" class="modal-button">Salvar alterações</button>
             </form>

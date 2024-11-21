@@ -23,12 +23,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $stmt->bindParam(':id', $userId);
     $stmt->execute();
 
-    // Remover o token usado comita por favor
+    // Remover o token usado
     $stmt = $pdo->prepare("DELETE FROM password_resets WHERE token = :token");
     $stmt->bindParam(':token', $token);
     $stmt->execute();
 
-   echo '<div class="alert alert-success"> Senha redefinida com sucesso. </div>';
+    echo '<div class="alert alert-success"> Senha redefinida com sucesso. </div>';
+    echo '<a href="../loginEmpresa.php" class="btn btn-secondary w-50 mx-auto mt-3" style="background-color: #ff9a52; display: block;">Voltar ao Login</a>';
 }
 ?>
 <!DOCTYPE html>
@@ -39,7 +40,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <title>Redefinir senha</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <style>
-        
         body {
             background-color: #f8f9fa;
             font-family: 'Arial', sans-serif;
@@ -64,16 +64,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
         .form-container .btn-primary {
             background-color: #ff9a52;
-            border-color: black;
+            border-color:#ff9a52;
             transition: all 0.3s;
         }
 
         .form-container .btn-primary:hover {
             background-color: #d54e21;
-            
-           
         }
-
 
         footer {
             margin-top: 30px;
@@ -89,15 +86,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     <form method="POST">
     <div class="mb-3">
-    
         <input type="hidden" name="token" value="<?php echo htmlspecialchars($_GET['token']); ?>">
         <label for="password">Nova senha:</label>
         <input type="password" name="password" required> <br>
-        </div>
-        <button type="submit" class="btn btn-primary w-100">Redefinir</button>
-    </form>
-
     </div>
+    <button type="submit" class="btn btn-primary w-100">Redefinir</button>
+    </form>
+</div>
 
 <footer>
     &copy; <?php echo date('Y'); ?> GUIAR. Todos os direitos reservados.

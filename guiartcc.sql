@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 18/11/2024 às 05:45
+-- Tempo de geração: 19/11/2024 às 03:01
 -- Versão do servidor: 10.4.32-MariaDB
 -- Versão do PHP: 8.2.12
 
@@ -43,8 +43,8 @@ CREATE TABLE `administrador` (
 INSERT INTO `administrador` (`id_adm`, `nome_adm`, `nome_usuario`, `nome_foto`, `senha`, `FK_EMPRESA_id_empresa`) VALUES
 (20, 'Vinicius Mira', 'Vini', '6706fd02bd6bd.jpg', '1234', 9),
 (21, 'Lorena Santos', 'Loris29', '670700ff75165.jpg', '123', 9),
-(22, 'Chay da Cunha', 'Chay', '6736cd896d788.jpg', '12345', 9),
-(23, 'Chay da Cunha', 'Chay', '673abc45a7e77.jpg', '123', 10);
+(22, 'Chay Castro', 'ChayBigBoca', '6736cd896d788.jpg', '123', 9),
+(23, 'Chay da Cunha', 'ChayLD', '673abc45a7e77.jpg', '123456', 10);
 
 -- --------------------------------------------------------
 
@@ -68,7 +68,7 @@ CREATE TABLE `empresa` (
 
 INSERT INTO `empresa` (`id_empresa`, `CNPJ`, `nome_empresa`, `nome_usuario`, `email`, `senha`, `nome_arquivo`) VALUES
 (9, '23.232.323/2323-33', 'Big Boca', 'bigboca01', 'bigb@gmail.com', '123', 'Isabely Faria_1.png'),
-(10, '54.546.575/6455-65', 'DoceriaLD', 'DocesLD', 'lorena.aa295@gmail.com', '12345', 'docess.png');
+(10, '54.546.575/6455-65', 'DoceriaLD', 'DocesLD', 'lorena.aa295@gmail.com', '123', 'docess.png');
 
 -- --------------------------------------------------------
 
@@ -111,6 +111,16 @@ CREATE TABLE `password_resets` (
   `expiry` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
+--
+-- Despejando dados para a tabela `password_resets`
+--
+
+INSERT INTO `password_resets` (`id`, `user_id`, `token`, `expiry`) VALUES
+(32, 10, '60490c7c715c5d25a5e23201f5c83d7b6cd492360f037af43801b5f239c55018', '2024-11-19 03:06:44'),
+(42, 10, 'cbf608003f8eeb985ae413c1c455c54c676b9536050443b58a3166df1a9a914c', '2024-11-19 03:29:18'),
+(44, 10, '64fbe438a9d325b7dd0d36a309126293f995f1f2934d7078d7bffb62efe36319', '2024-11-19 03:31:38'),
+(46, 10, '6f71d4081a121287551770c732d7d0a902174f1dfdfcf8e4352bd84453dce88f', '2024-11-19 03:34:36');
+
 -- --------------------------------------------------------
 
 --
@@ -126,6 +136,7 @@ CREATE TABLE `pedido` (
   `descricao` text NOT NULL,
   `id_entregador` int(11) DEFAULT NULL,
   `id_empresa` int(11) NOT NULL,
+  `id_adm` int(11) NOT NULL,
   `latitude` double DEFAULT NULL,
   `longitude` double DEFAULT NULL,
   `status` varchar(50) NOT NULL DEFAULT 'Pendente'
@@ -135,8 +146,8 @@ CREATE TABLE `pedido` (
 -- Despejando dados para a tabela `pedido`
 --
 
-INSERT INTO `pedido` (`id_pedido`, `nome_cliente`, `preco`, `endereco`, `bairro`, `descricao`, `id_entregador`, `id_empresa`, `latitude`, `longitude`, `status`) VALUES
-(17, 'Vinicius Mira', 32.00, 'Rua josé lopes de Azevedo neto, 30', 'jardim suécia', 'teste', 17, 9, -22.3529114, -46.914247, 'Enviado');
+INSERT INTO `pedido` (`id_pedido`, `nome_cliente`, `preco`, `endereco`, `bairro`, `descricao`, `id_entregador`, `id_empresa`, `id_adm`, `latitude`, `longitude`, `status`) VALUES
+(20, 'Vinicius Mira', 23.00, 'Rua josé lopes de Azevedo neto, 30', 'jardim suécia', '2 pizzas de frango', 17, 9, 21, -22.3529114, -46.914247, 'entregue');
 
 --
 -- Índices para tabelas despejadas
@@ -178,7 +189,8 @@ ALTER TABLE `password_resets`
 ALTER TABLE `pedido`
   ADD PRIMARY KEY (`id_pedido`),
   ADD KEY `fk_entregador` (`id_entregador`),
-  ADD KEY `fk_empresa` (`id_empresa`);
+  ADD KEY `fk_empresa` (`id_empresa`),
+  ADD KEY `fk_pedido_administrador` (`id_adm`);
 
 --
 -- AUTO_INCREMENT para tabelas despejadas
@@ -206,13 +218,13 @@ ALTER TABLE `entregador`
 -- AUTO_INCREMENT de tabela `password_resets`
 --
 ALTER TABLE `password_resets`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=55;
 
 --
 -- AUTO_INCREMENT de tabela `pedido`
 --
 ALTER TABLE `pedido`
-  MODIFY `id_pedido` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
+  MODIFY `id_pedido` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 
 --
 -- Restrições para tabelas despejadas
@@ -241,7 +253,8 @@ ALTER TABLE `password_resets`
 --
 ALTER TABLE `pedido`
   ADD CONSTRAINT `fk_empresa` FOREIGN KEY (`id_empresa`) REFERENCES `empresa` (`id_empresa`),
-  ADD CONSTRAINT `fk_entregador` FOREIGN KEY (`id_entregador`) REFERENCES `entregador` (`id_entregador`);
+  ADD CONSTRAINT `fk_entregador` FOREIGN KEY (`id_entregador`) REFERENCES `entregador` (`id_entregador`),
+  ADD CONSTRAINT `fk_pedido_administrador` FOREIGN KEY (`id_adm`) REFERENCES `administrador` (`id_adm`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
