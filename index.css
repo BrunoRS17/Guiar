@@ -21,15 +21,10 @@
 
 body{
   margin: 0;
-  padding: 0;
+  padding: 0; 
   overflow-x: hidden; /* Impede o scroll horizontal */
   background-color: #fefaf1 !important;
   font-family: 'BasisGrotesque-Regular';
-  max-width: 100%;
-}
-
-*, *::before, *::after {
-  box-sizing: inherit;
 }
 
 .landing{
@@ -87,16 +82,17 @@ body{
 
 .container-slider {
   margin-top: 50px;
-  background-color: #f4f4f4; /* Fundo mais claro */
+  background-color: #fffdfa; /* Fundo mais claro */
   width: 100%; /* Responsivo */
   overflow: hidden; /* Garante que nada fora do contêiner seja exibido */
   border: 1px solid #ddd; /* Borda leve */
-  border-radius: 8px; /* Bordas arredondadas */
+  border-radius: 1px; /* Bordas arredondadas */
+  border: 4px solid rgb(219, 99, 23);
 }
 
 .logos {
+  padding: 15px 0;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Sombra mais suave */
-  padding: 10px 0;
   max-width: 100%; /* Ocupa todo o espaço disponível */
   margin: auto;
   overflow: hidden;
@@ -130,22 +126,39 @@ body{
 }
 
 .card-container {
-  padding: 30px;
-  margin-bottom: 50px;
+  padding: 100px 15px;
   background: url(img/background-guiar.jpg);
   background-repeat: no-repeat;
   background-size: cover;
-  display: inline-flex;
-  border-bottom: 4px solid rgb(219, 99, 23);
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap; /* Garante que os elementos quebrem em telas menores */
+  gap: 20px; /* Espaçamento entre os cards */
+  border-bottom: 5px solid rgb(219, 99, 23);
+  margin-bottom: 60px;
 }
 
 .card-body {
+  margin: 0;
   background-color: #fff;
   border-radius: 10px;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.589);
   padding: 30px;
-  width: 250px;
   text-align: center;
+  transition: transform 0.3s ease;
+  width: 100%; /* Define largura completa para responsividade */
+  max-width: 300px; /* Limita a largura máxima */
+}
+
+.row {
+  display: flex;
+  flex-wrap: wrap; /* Garante quebra de linha para responsividade */
+  justify-content: center;
+  gap: 20px; /* Espaçamento entre os cards */
+}
+
+.card-body:hover {
+  transform: scale(1.05); /* Leve aumento no hover */
 }
 
 .card-body h5 {
@@ -178,5 +191,17 @@ body{
   }
   100% {
     transform: translateX(calc(-150px * 7)); /* Move todo o conteúdo uma vez */
+  }
+}
+
+@media (min-width: 992px) {
+  .card-body {
+    width: 280px; /* Alinhamento consistente em telas grandes */
+  }
+}
+
+@media (max-width: 991px) {
+  .card-body {
+    margin-bottom: 40px;
   }
 }

@@ -102,7 +102,7 @@ if (isset($_POST['entrar']) && !empty($_POST['email']) && !empty($_POST['senha']
 <body>
 <nav class="navbar navbar-expand-lg custom-navbar" id="gblur">
         <div class="container-fluid">
-            <a class="navbar-brand" href="index.html"><img style= "height: 90px;" src="../img/Guiar.png" alt="LOGO"></img></a>
+            <a class="navbar-brand" href="../index.html"><img style= "height: 90px;" src="../img/Guiar.png" alt="LOGO"></img></a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
         aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
