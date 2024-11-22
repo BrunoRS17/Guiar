@@ -84,7 +84,9 @@ $nomeAdmin = $_SESSION['nome_usuario'];
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Index | Adminnistrador</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <title>Index | Administrador</title>
     <link
     rel="Shortcut Icon" 
     type="image/png"
@@ -162,8 +164,64 @@ $nomeAdmin = $_SESSION['nome_usuario'];
             -webkit-text-fill-color: #ff9a52;
         }
 
+        .dicas {
+            margin-top: 20px;
+            padding: 15px;
+        }
+
+        .dicas h2 {
+            font-family: 'Brice-Bold';
+            font-size: 35px;
+            color: #131646;
+            margin-bottom: 40px;
+        }
+
+        .card-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 30px; /* Espaçamento entre os cards */
+            justify-content: center;
+        }
+
+        .card {
+            align-items: center;
+            background-color: #ffffff;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            text-align: center;
+            height: 100%;
+        }
+
+        .card-icon {
+            width: 60px; /* Tamanho do ícone */
+            height: auto; /* Mantém a proporção do ícone */
+            margin-bottom: 20px;
+        }
+
+        .card h3 {
+            font-family: 'Brice-SemiBoldSemi';
+            font-size: 20px;
+            color: #131646;
+        }
+
+        .card p {
+            font-size: 16px;
+            color: #555555; /* Cor do texto da descrição */
+        }
+
+        .dicas ul {
+            list-style-type: disc; /* Estilo da lista */
+            padding-left: 20px; /* Espaçamento à esquerda */
+        }
+
+        .dicas li {
+            margin-bottom: 10px; /* Espaçamento entre itens */
+            font-size: 16px;
+        }
+
           /* Estilo para posicionar o botão no canto superior direito */
-          .logout-btn {
+        .logout-btn {
             position: absolute;
             top: 20px;
             right: 20px;
@@ -183,12 +241,10 @@ $nomeAdmin = $_SESSION['nome_usuario'];
             border-bottom-right-radius: 0px;
             border-top-left-radius: 0px;
         }
+
     </style>
 </head>
 <body>
-<div class="container-fluid">
-<div class="row align-items-center">
-<div class="col-md-4">
     <div class="sidebar">
         <a href="../PHP ADM/indexAdm.php">Início</a>
         <a href="../PHP ADM/pedidos.php">Pedidos</a>
@@ -197,15 +253,59 @@ $nomeAdmin = $_SESSION['nome_usuario'];
         <div class="spacer"></div>
         <a href="../PHP ADM/meuPerfil.php">Meu perfil</a>
     </div>
-</div>
+
      <!-- Botão de logout -->
      <a href="indexAdm.php?logout=true" class="logout-btn">Logout</a>
 
-    <div class="main">
-       <!-- Exibe a mensagem de boas-vindas -->
-       <h1>Olá, <spam><?php echo htmlspecialchars($nomeAdmin) . "!"; ?></spam></h1>
+     <div class="main">
+    <!-- Exibe a mensagem de boas-vindas -->
+    <h1>Olá, <spam><?php echo htmlspecialchars($nomeAdmin) . "!"; ?></spam></h1>
+    <hr color="black" size="2px">
+<!-- Seção de Dicas em Cards -->
+<section class="dicas">
+        <center><h2>Dicas e Melhores Práticas</h2></center>
+        <div class="container-fluid">
+        <div class="row align-items-center">
+        <div class="card-container">
+            <div class="col-md-3">
+            <div class="card">
+                <img src="../img/icon1.png" alt="Organize seus pedidos" class="card-icon">
+                <h3>Organize seus pedidos</h3>
+                <p>Utilize filtros para visualizar pedidos específicos.</p>
+            </div>
+            </div>
+            <div class="col-md-3">
+            <div class="card">
+                <img src="../img/icon2.png" alt="Comunique-se com os entregadores" class="card-icon">
+                <h3>Comunique-se com os entregadores</h3>
+                <p>Mantenha contato direto para evitar atrasos.</p>
+            </div>
+            </div>
+            <div class="col-md-3">
+            <div class="card">
+                <img src="../img/icon3.png" alt="Revise feedbacks" class="card-icon">
+                <h3>Revise feedbacks</h3>
+                <p>Analise as avaliações dos clientes para melhorar o serviço.</p>
+            </div>
+            </div>
+            <div class="col-md-3">
+            <div class="card">
+                <img src="../img/icon4.png" alt="Mantenha registros atualizados" class="card-icon">
+                <h3>Mantenha registros atualizados</h3>
+                <p>Certeza de que todos os dados dos motoboys estejam corretos.</p>
+            </div>
+            </div>
+            <div class="col-md-3">
+            <div class="card">
+                <img src="../img/icon5.png" alt="Use relatórios" class="card-icon">
+                <h3>Use relatórios</h3>
+                <p>Gere relatórios periódicos para acompanhar o desempenho das entregas.</p>
+            </div>
+            </div>
+        </div>
     </div>
 </div>
+</section>
 </div>
-
+</body>
 </html>

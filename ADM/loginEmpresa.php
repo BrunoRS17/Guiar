@@ -119,6 +119,9 @@ body{
           <li class="nav-item">
             <a class="nav-link" href="../ENTREGADOR/loginEntregador.php">Entregador</a>
           </li>
+          <li class="nav-item">
+              <a class="nav-link" href="../contato.php">Contato</a>
+          </li>
         </ul>
       </div>
     </div>

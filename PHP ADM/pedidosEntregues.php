@@ -263,7 +263,7 @@ try {
         /* finalizar turno */
         .finalizar-btn {
         position: fixed;
-        bottom: 100px;
+        bottom: 50px;
         right: 20px; /* Alterado de 'left' para 'right' */
         padding: 10px 20px;
         background-color: #fc8835;

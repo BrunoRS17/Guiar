@@ -182,7 +182,6 @@ try {
         }
 
         .fixed-buttons {
-            background-color: #fc8835;
             font-family: 'BasisGrotesque-Regular';
             position: fixed;
             bottom: 20px;
